@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lịch sử phát triển</title>
+  <style>
+    :root{
+      --primary:#004aad;
+      --secondary:#ffc107;
+      --muted:#555;
+      --bg:#f4f7fb;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',Roboto,Arial,sans-serif;line-height:1.6;background:var(--bg);color:#222}
+    header{
+      background:var(--primary);
+      color:#fff;
+      padding:18px 0;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+    .header-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo span{font-weight:700;font-size:22px;letter-spacing:0.5px}
+    .logo img{width:48px;height:48px;border-radius:8px}
+    nav a{color:#fff;text-decoration:none;margin-left:18px;font-weight:500;transition:0.3s}
+    nav a:hover{color:var(--secondary)}
+
+    .hero{
+      background:url('https://via.placeholder.com/1600x400?text=Campus+View') center/cover;
+      color:#fff;
+      text-align:center;
+      padding:90px 20px;
+      position:relative;
+    }
+    .hero::after{
+      content:'';position:absolute;inset:0;background:rgba(0,0,0,0.5);
+    }
+    .hero-content{position:relative;z-index:2;max-width:700px;margin:auto}
+    .hero h1{font-size:42px;margin-bottom:10px}
+    .hero p{font-size:18px;color:#eee}
+
+    main{max-width:1100px;margin:auto;padding:40px 20px;background:#fff;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,0.06);margin-top:-60px;position:relative;z-index:5}
+    h2{color:var(--primary);margin-top:24px}
+    p{margin:10px 0;color:#333}
+
+    .timeline{position:relative;margin:40px 0;padding-left:40px}
+    .timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:3px;background:var(--secondary)}
+    .event{position:relative;margin-bottom:20px}
+    .event::before{content:'';position:absolute;left:10px;top:8px;width:20px;height:20px;background:var(--secondary);border-radius:50%;box-shadow:0 0 0 4px #fff}
+    .event .year{font-weight:700;color:var(--primary);margin-bottom:4px}
+    .event .desc{background:#f9fafc;border:1px solid #e0e5eb;padding:12px 16px;border-radius:10px}
+
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:24px}
+    .gallery img{width:100%;border-radius:10px;object-fit:cover;transition:0.3s}
+    .gallery img:hover{transform:scale(1.05)}
+
+
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Lịch sử phát triển</h1>
+      <p>Hành trình hình thành và lớn mạnh của nhà trường qua từng giai đoạn</p>
+    </div>
+  </section>
+
+  <main>
+    <section id="gioi-thieu">
+      <h2>I. Giới thiệu chung</h2>
+      <p>Trường Đại học được thành lập ngày <strong>14/11/2007</strong>, theo quyết định của Bộ Giáo dục và Đào tạo. Trải qua hơn một thập kỷ phát triển, trường đã không ngừng đổi mới, mở rộng quy mô, đa dạng hóa ngành nghề đào tạo và nâng cao chất lượng giảng dạy.</p>
+      <p>Với triết lý “Giáo dục gắn liền thực tiễn”, nhà trường hướng tới việc tạo dựng môi trường học tập sáng tạo, thân thiện, giúp sinh viên phát huy tối đa năng lực cá nhân và sẵn sàng hội nhập quốc tế.</p>
+    </section>
+
+    <section id="su-menh">
+      <h2>II. Sứ mệnh &amp; Tầm nhìn</h2>
+      <p><strong>Sứ mệnh:</strong> Đào tạo nguồn nhân lực chất lượng cao, có đạo đức nghề nghiệp, đáp ứng nhu cầu phát triển của đất nước trong thời kỳ hội nhập.</p>
+      <p><strong>Tầm nhìn:</strong> Trở thành một trong những trường đại học uy tín hàng đầu khu vực, nơi hội tụ tri thức, sáng tạo và trách nhiệm xã hội.</p>
+      <p><strong>Giá trị cốt lõi:</strong> Tận tâm – Sáng tạo – Hợp tác – Phát triển bền vững.</p>
+    </section>
+
+    <section id="moc-lich-su">
+      <h2>III. Các mốc lịch sử quan trọng</h2>
+      <div class="timeline">
+          <div class="year">2007</div>
+          <div class="desc">Thành lập trường, bắt đầu tuyển sinh khóa đầu tiên.</div>
+        </div>
+          <div class="year">2012</div>
+          <div class="desc">Hoàn thiện cơ sở vật chất giai đoạn 1, đưa vào hoạt động khu giảng đường mới.</div>
+        </div>
+          <div class="year">2015</div>
+          <div class="desc">Mở thêm các ngành Công nghệ thông tin, Du lịch, Ngôn ngữ Anh.</div>
+        </div>
+          <div class="year">2020</div>
+          <div class="desc">Ứng dụng chuyển đổi số trong quản lý đào tạo, triển khai hệ thống học trực tuyến.</div>
+        </div>
+          <div class="year">2023</div>
+          <div class="desc">Khánh thành trung tâm nghiên cứu và thư viện điện tử hiện đại.</div>
+        </div>
+      </div>
+    </section>
+    <section id="lien-he">
+      <h2>V. Thông tin liên hệ</h2>
+      <p><strong>Địa chỉ:</strong> Số 1 Phố Xốm, Phú Lãm, Hà Đông, Hà Nội</p>
+      <p><strong>Email:</strong> contact@dainam.edu.vn</p>
+      <p><strong>Điện thoại:</strong> (024) 35577799</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,384 @@
+html<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sứ mệnh - Tầm nhìn - Giá trị cốt lõi | Đại Nam University</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .top-bar {
+            background: #003d82;
+            height: 4px;
+        }
+
+        header {
+            background: white;
+            padding: 20px 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-text .main {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ff6600;
+            letter-spacing: 2px;
+        }
+
+        .logo-text .sub {
+            font-size: 13px;
+            color: #003d82;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #003d82, #0056b3);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .page-header .divider {
+            width: 80px;
+            height: 4px;
+            background: #ff6600;
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #003d82;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #ff6600;
+            display: inline-block;
+        }
+
+        .section-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .section-content strong {
+            color: #003d82;
+            font-weight: 600;
+        }
+
+        /* Grid Layout for Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 5px solid #ff6600;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            border-left-width: 8px;
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .value-card h3 {
+            font-size: 20px;
+            color: #003d82;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .value-card .icon {
+            font-size: 28px;
+        }
+
+        .value-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .value-card ul {
+            margin-top: 15px;
+            margin-left: 20px;
+        }
+
+        .value-card li {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #ff6600, #ff8800);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 8px 25px rgba(255, 102, 0, 0.3);
+        }
+
+        .highlight-box h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .highlight-box p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Responsibility List */
+        .responsibility-list {
+            list-style: none;
+            counter-reset: item;
+        }
+
+        .responsibility-list li {
+            counter-increment: item;
+            margin-bottom: 25px;
+            padding-left: 60px;
+            position: relative;
+        }
+
+        .responsibility-list li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff6600, #ff8800);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .responsibility-list li strong {
+            display: block;
+            font-size: 18px;
+            color: #003d82;
+            margin-bottom: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+            .container {
+                padding: 40px 15px;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .responsibility-list li {
+                padding-left: 50px;
+            }
+
+            .responsibility-list li::before {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar"></div>
+    
+    <header>
+        <div class="logo">
+            <div class="logo-text">
+                <div class="main">ĐẠI NAM</div>
+                <div class="sub">UNIVERSITY</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>Sứ mệnh - Tầm nhìn - Giá trị cốt lõi</h1>
+        <div class="divider"></div>
+    </div>
+
+    <div class="container">
+        <!-- Nền tảng & Sứ mệnh -->
+        <div class="section">
+            <h2 class="section-title">I. NỀN TẢNG PHÁT TRIỂN</h2>
+            <div class="section-content">
+                <p>Đại học Đại Nam là trường đại học ứng dụng, phát triển theo định hướng <strong>khởi nghiệp và đổi mới sáng tạo</strong>; đa ngành, đa lĩnh vực linh hoạt theo yêu cầu phát triển của đất nước và hội nhập quốc tế.</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h2>SỨ MỆNH</h2>
+            <p>Đào tạo để người học ra trường có cuộc sống tốt và là công dân tốt; góp phần thúc đẩy mạnh mẽ nền giáo dục nước nhà.</p>
+        </div>
+
+        <!-- Tầm nhìn & Triết lý -->
+        <div class="section">
+            <h2 class="section-title">II. TẦM NHÌN & TRIẾT LÝ</h2>
+            <div class="section-content">
+                <p><strong>Tầm nhìn:</strong> Trở thành sự lựa chọn hàng đầu của người học.</p>
+                <p style="margin-top: 15px;"><strong>Khẩu hiệu hành động:</strong> Học để thay đổi</p>
+                <p style="margin-top: 15px;"><strong>Triết lý giáo dục:</strong> Giáo dục là thắp sáng.</p>
+                <p style="margin-top: 15px;"><strong>Phương châm:</strong> Việc gì có hại đến người học dù nhỏ nhất cũng kiên quyết không làm. Việc gì tốt cho người học thì hết lòng, hết sức.</p>
+            </div>
+        </div>
+
+        <!-- Trách nhiệm -->
+        <div class="section">
+            <h2 class="section-title">III. TRÁCH NHIỆM CỦA ĐẠI HỌC ĐẠI NAM</h2>
+            <ul class="responsibility-list">
+                <li>
+                    <strong>Với sinh viên, phụ huynh</strong>
+                    <p>Cung cấp dịch vụ đào tạo tốt nhất; liên tục cải tiến chất lượng đào tạo.</p>
+                </li>
+                <li>
+                    <strong>Với cán bộ, giảng viên</strong>
+                    <p>Đảm bảo môi trường làm việc an toàn, chế độ lương thưởng hợp lý, quản lý công bằng dựa trên năng lực.</p>
+                </li>
+                <li>
+                    <strong>Với đất nước</strong>
+                    <p>Đào tạo nguồn nhân lực chất lượng cao, đóng góp vào sự phát triển của đất nước.</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Giá trị cốt lõi -->
+        <div class="section">
+            <h2 class="section-title">IV. GIÁ TRỊ CỐT LÕI</h2>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3><span class="icon">🎯</span> Vì danh dự: Chính trực</h3>
+                    <p>Luôn cư xử với người khác theo chuẩn mực đạo đức và trọng danh dự.</p>
+                    <ul>
+                        <li>Tôn trọng người khác</li>
+                        <li>Thẳng thắn, trung thực và công bằng</li>
+                        <li>Nhất quán giữa nói và làm</li>
+                    </ul>
+                </div>
+
+                <div class="value-card">
+                    <h3><span class="icon">❤️</span> Vì người học: Tận tâm</h3>
+                    <p>Cố gắng hết khả năng, sức lực, tâm huyết để hoàn thành công việc tốt nhất.</p>
+                    <ul>
+                        <li>Lắng nghe thấu hiểu người học</li>
+                        <li>Chủ động tư vấn, hỗ trợ kiên nhẫn</li>
+                        <li>Sẵn sàng làm để giúp người học đạt mục tiêu</li>
+                    </ul>
+                </div>
+
+                <div class="value-card">
+                    <h3><span class="icon">🚀</span> Vì nhà trường: Không ngừng bứt phá</h3>
+                    <p>Luôn đặt ra và chinh phục các mục tiêu thách thức, áp dụng cách làm mới.</p>
+                    <ul>
+                        <li>Đặt ra mục tiêu có khát vọng</li>
+                        <li>Đổi mới sáng tạo trong mọi công việc</li>
+                        <li>Dũng cảm thừa nhận và học từ sai lầm</li>
+                    </ul>
+                </div>
+
+                <div class="value-card">
+                    <h3><span class="icon">🤝</span> Vì đồng nghiệp: Sẵn sàng chia sẻ</h3>
+                    <p>Sẵn sàng chia sẻ, chủ động giúp đỡ đồng nghiệp trong công việc và cuộc sống.</p>
+                    <ul>
+                        <li>Hỗ trợ, chia sẻ tài nguyên</li>
+                        <li>Lắng nghe và thấu hiểu đồng nghiệp</li>
+                        <li>Tham gia hoạt động kết nối</li>
+                    </ul>
+                </div>
+
+                <div class="value-card">
+                    <h3><span class="icon">📚</span> Vì bản thân: Luôn học hỏi</h3>
+                    <p>Khiêm tốn, chủ động học hỏi kiến thức, kỹ năng để nâng cao năng lực bản thân.</p>
+                    <ul>
+                        <li>Chủ động đọc sách, cập nhật kiến thức</li>
+                        <li>Học hỏi từ đồng nghiệp</li>
+                        <li>Tham gia tích cực các khóa học, hội thảo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
