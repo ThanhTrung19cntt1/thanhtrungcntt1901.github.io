@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đại Nam University - Khoa Công nghệ thông tin</title>
+    <style>
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .top-bar {
+            background: #003d82;
+            height: 4px;
+        }
+
+        header {
+            background: white;
+            padding: 15px 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .main {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ff6600;
+            letter-spacing: 2px;
+            line-height: 1;
+        }
+
+        .logo-text .sub {
+            font-size: 13px;
+            color: #003d82;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Menu Item với Dropdown */
+        .menu-item {
+            position: relative;
+        }
+
+        nav a, .menu-item > span {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            padding: 5px 0;
+        }
+
+        nav a:hover, .menu-item > span:hover {
+            color: #003d82;
+        }
+
+        nav a::after, .menu-item > span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff6600;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after, .menu-item > span:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown Arrow */
+        .menu-item > span::before {
+            content: none;
+            font-size: 9px;
+            margin-left: 6px;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .menu-item:hover > span::before {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu (Cấp 1) */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 250px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        .menu-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown a::after {
+            display: none;
+        }
+
+        .dropdown a:hover {
+            background: #f5f5f5;
+            color: #ff6600;
+            border-left-color: #ff6600;
+            padding-left: 25px;
+        }
+
+    
+        .hero {
+            background: linear-gradient(135deg, #002d5c 0%, #003d82 50%, #004ba0 100%);
+            padding: 80px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 136, 0, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            right: 10%;
+            top: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { 
+                transform: translate(0, 0) rotate(0deg);
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+            50% { 
+                transform: translate(20px, 20px) rotate(5deg);
+                border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+            }
+        }
+
+        .hero-content {
+            flex: 1;
+            color: white;
+            max-width: 600px;
+            z-index: 1;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-tag {
+            color: #ff8800;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            color: white;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            text-align: justify;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 550px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.03);
+        }
+
+        @media (max-width: 1200px) {
+            header {
+                padding: 15px 40px;
+            }
+
+            nav {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 968px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px 30px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                margin-top: 10px;
+                padding: 0;
+                display: none;
+            }
+
+            .menu-item:hover .dropdown {
+                display: block;
+            }
+
+            .hero {
+                flex-direction: column;
+                gap: 50px;
+                padding: 60px 30px;
+                text-align: left;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-title {
+                font-size: 42px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .hero-image img {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .logo-text .main {
+                font-size: 22px;
+            }
+
+            .logo-text .sub {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+
+            .logo img {
+                width: 40px;
+                height: 40px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a, .menu-item > span {
+                font-size: 14px;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-tag {
+                font-size: 14px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="top-bar"></div>
+    
+    <header>
+        <div class="logo">
+            <img src="img/logo.jfif" alt="Đại Nam University Logo">
+            <div class="logo-text">
+                <span class="main">ĐẠI NAM</span>
+                <span class="sub">UNIVERSITY</span>
+            </div>
+        </div>
+        <nav>
+            <!--Menu Dropdown -->
+            <div class="menu-item">
+                <span>Giới thiệu</span>
+                <div class="dropdown">
+                    <a href="gioithieuchung.html">Giới thiệu chung</a>
+                    <a href="lichsuphattrien.html">Lịch sử phát triển</a>
+                    <a href="tamnhinsumenh.html">Tầm nhìn & Sứ mệnh</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <span>Tin tức</span>
+                <div class="dropdown">
+                    <a href="sukien.html">Sự kiện</a>
+                    <a href="hoatdong.html">Hoạt động sinh viên</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <span>Đào tạo</span>
+                <div class="dropdown">
+                    <a href="daihoc">Đại học</a>
+                    <a href="thacsi">Thạc sĩ</a>
+                    <a href="nganhan">Ngắn hạn</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span>Sinh viên</span>
+                    <div class="dropdown">
+                        <a href="CLB">Câu lạc bộ</a>
+                        <a href="Hocbong">Học bổng</a>
+                        <a href="Vieclam">Việc làm</a>
+                        </div>
+                    </div>
+            <a href="thongtinlienhe.html">Liên hệ</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-tag">Kỹ thuật - Công nghệ</div>
+            <h1 class="hero-title">Khoa Công nghệ thông tin</h1>
+            <p class="hero-description">
+                Khoa Công nghệ thông tin (CNTT) thành lập năm 2009, là nơi đào tạo những chuyên gia công nghệ chất lượng cao, đáp ứng nhu cầu khẩn khe của thị trường trong kỷ nguyên số. Với chương trình học thực tiễn, sáng tạo, gắn kết chặt chẽ với doanh nghiệp, Khoa CNTT trang bị cho sinh viên kiến thức chuyên sâu, kỹ năng vững vàng, sẵn sàng chinh phục mọi thử thách và dẫn đầu trong lĩnh vực công nghệ.
+            </p>
+        </div>
+        <div class="hero-image">
+            <img src="img/1.jpg" alt="Lớp học Công nghệ thông tin">
+        </div>
+    </section>
+</body>
+</html>
