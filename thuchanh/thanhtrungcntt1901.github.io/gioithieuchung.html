@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới thiệu chung</title>
+  <style>
+    :root {
+      --primary: #ff7a00;
+      --dark: #111;
+      --muted: #555;
+      --bg: #fafafa;
+      --accent: #004aad;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--accent);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 32px;
+      letter-spacing: 0.5px;
+    }
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      padding-bottom: 40px;
+    }
+    section.intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 40px 20px 0;
+    }
+    .stats {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .stat-item {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+    .intro-text p {
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+    .intro-text strong {
+      color: var(--dark);
+    }
+    a.more {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    a.more:hover {
+      color: var(--primary);
+    }
+
+    section.departments {
+      padding: 0 20px;
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+    .dept {
+      background: #f9fafc;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 18px 16px;
+      transition: 0.3s;
+    }
+    .dept:hover {
+      background: #fff7f0;
+      border-color: var(--primary);
+    }
+    .dept h3 {
+      color: var(--accent);
+      font-size: 18px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--primary);
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+    .dept ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 8px;
+    }
+    .dept li {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 6px 0;
+    }
+    footer {
+      background: var(--accent);
+      color: white;
+      text-align: center;
+      padding: 14px 0;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      section.intro {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .stats {
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Giới thiệu chung</h1>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="stats">
+        <div class="stat-item">50</div>
+        <div class="stat-label">Khoa – Viện – Trung tâm</div>
+        <div class="stat-item">48</div>
+        <div class="stat-label">Chương trình đào tạo</div>
+      </div>
+      <div class="intro-text">
+        <p><strong>Trường Đại học Đại Nam (DNU)</strong> là trường đại học đa ngành với 50 đơn vị trực thuộc, định hướng phát triển theo ba trụ cột: <em>Ứng dụng – Khởi nghiệp & Đổi mới sáng tạo – Hội nhập quốc tế</em>.</p>
+        <p>Trường cung cấp 48 chương trình đào tạo đa dạng (gồm 42 chương trình đại học, 5 chương trình thạc sĩ và 1 chương trình tiến sĩ) với lộ trình học tập tinh gọn, linh hoạt. Sinh viên có thể <strong>tốt nghiệp sớm – việc làm ngay</strong> trong thời đại hội nhập.</p>
+        <a href="#" class="more">Xem tất cả các chương trình đào tạo +</a>
+      </div>
+    </section>
+
+    <section class="departments">
+      <div class="dept">
+        <h3>Sức khỏe</h3>
+        <ul>
+          <li>Khoa Y</li>
+          <li>Khoa Dược</li>
+          <li>Khoa Điều dưỡng</li>
+        </ul>
+      </div>
+
+      <div class="dept">
+        <h3>Kỹ thuật – Công nghệ</h3>
+        <ul>
+          <li>Khoa Công nghệ thông tin</li>
+          <li>Khoa Kỹ thuật điện – điện tử</li>
+          <li>Khoa Cơ khí – Ô tô</li>
+        </ul>
+      </div>
+
+      <div class="dept">
+        <h3>Kinh tế – Kinh doanh</h3>
+        <ul>
+          <li>Khoa Quản trị kinh doanh</li>
+          <li>Viện Công nghệ tài chính (Fintech)</li>
+          <li>Khoa Kế toán – Tài chính</li>
+        </ul>
+      </div>
+
+      <div class="dept">
+        <h3>Khoa học xã hội & Ngôn ngữ</h3>
+        <ul>
+          <li>Khoa Ngôn ngữ Anh</li>
+          <li>Khoa Ngôn ngữ & Văn hóa Trung Quốc</li>
+          <li>Khoa Truyền thông – Du lịch</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Form đăng ký tư vấn tuyển sinh</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 30px;
+      color: #4a5568;
+    }
+
+    h1 {
+      font-weight: 900;
+      font-size: 28px;
+      color: #1a202c;
+      margin-bottom: 8px;
+    }
+
+    p.description {
+      font-size: 14px;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #718096;
+    }
+
+    form {
+      background-color: #f1f5f9;
+      padding: 20px 25px;
+      border-radius: 10px;
+      max-width: 600px;
+      box-sizing: border-box;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      color: #1a202c;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #a0aec0;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="date"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #f97316; /* màu cam */
+      color: #1a202c;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .form-row > div {
+      flex: 1;
+    }
+
+    button {
+      background-color: #f97316;
+      color: white;
+      font-weight: 700;
+      padding: 14px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgb(249 115 22 / 0.5);
+    }
+
+    button:hover {
+      background-color: #ea580c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Liên hệ với nhà trường về vấn đề của bạn</h1>
+  <p class="description">
+    Đại học Đại Nam tuyển sinh <strong>36 chương trình đào tạo</strong> thuộc nhiều chuyên ngành khác nhau, bao gồm
+    Chăm sóc sức khỏe, Kỹ thuật và Công nghệ, Kinh tế và Kinh doanh, Khoa học Xã hội và Nhân văn.
+  </p>
+
+  <form>
+    <div class="form-row">
+      <div>
+        <label for="fullname">Họ và tên đầy đủ</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Nhập họ và tên của bạn(*)" required />
+      </div>
+      <div>
+        <label for="birthday">Ngày sinh</label>
+        <input type="date" id="birthday" name="birthday" placeholder="dd/mm/yyyy" required />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div>
+        <label for="phone">Số điện thoại</label>
+        <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại của bạn(*)" required />
+      </div>
+      <div>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Nhập email của bạn(*)" required />
+      </div>
+    </div>
+
+    <div>
+      <label for="address">Địa chỉ</label>
+      <input type="text" id="address" name="address" placeholder="Nhập địa chỉ của bạn(*)" required />
+    </div>
+
+    <div>
+      <label for="interest">Vấn đề quan tâm</label>
+      <input type="text"id="address" name="address" placeholder="Nhập vấn đề bạn quan tâm(*)" required/>
+  
+    </div>
+
+    <button type="submit">Gửi yêu cầu của bạn</button>
+  </form>
+</body>
+</html>
