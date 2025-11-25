@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới thiệu chung</title>
+  <style>
+    :root {
+      --primary: #ff7a00;
+      --dark: #111;
+      --muted: #555;
+      --bg: #fafafa;
+      --accent: #004aad;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--accent);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 32px;
+      letter-spacing: 0.5px;
+    }
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      padding-bottom: 40px;
+    }
+    section.intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 40px 20px 0;
+    }
+    .stats {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .stat-item {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+    .intro-text p {
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+    .intro-text strong {
+      color: var(--dark);
+    }
+    a.more {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    a.more:hover {
+      color: var(--primary);
+    }
+
+    section.departments {
+      padding: 0 20px;
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+    .dept {
+      background: #f9fafc;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 18px 16px;
+      transition: 0.3s;
+    }
+    .dept:hover {
+      background: #fff7f0;
+      border-color: var(--primary);
+    }
+    .dept h3 {
+      color: var(--accent);
+      font-size: 18px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--primary);
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+    .dept ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 8px;
+    }
+    .dept li {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 6px 0;
+    }
+    footer {
+      background: var(--accent);
+      color: white;
+      text-align: center;
+      padding: 14px 0;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      section.intro {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .stats {
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Giới thiệu chung</h1>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="stats">
+        <div class="stat-item">4</div>
+        <div class="stat-label">Địa điểm du lịch Quỳnh Nhai hấp dẫn nhất</div>
+      </div>
+      <div class="intro-text">
+        <p><strong>Quỳnh Nhai là một trong những địa điểm du lịch nổi tiếng của tỉnh Sơn La. Cùng khám phá 5 địa điểm du lịch Quỳnh Nhai hấp dẫn, đẹp, nổi tiếng.
+        <p>Quỳnh Nhai là cùng đất sơn thủy, hữu tình, non xanh nước biếc của tỉnh Sơn La. Nơi đây có “biển hồ Quỳnh Nhai” được xem là hồ thủy điện lớn nhất cả nước và vô số địa điểm du lịch tuyệt đẹp khác. Hãy cùng Bách Hóa Xanh khám phá 5 địa điểm du lịch hấp dẫn nhất tại đây nhé!
+      </div>
+    </section>
+
+    <section class="departments">
+      <div class="dept">
+        <h3>Cầu Pá Uôn</h3>
+        <ul>
+          <li> Đánh giá chất lượng:4.5/5 (Đánh giá bởi Google)</li>
+          <li>Địa chỉ:Cầu Pá Uôn, Quỳnh Nhai, Sơn La</li>
+          <li>Giá thành: Miễn phí</li>
+        </ul>
+      </div>
+
+      <div class="dept">
+        <h3>Đảo trái tim</h3>
+        <ul>
+          <li>Đánh giá chất lượng:3.9/5 (Đánh giá bởi Google)</li>
+          <li>Địa chỉ:Hồ thuỷ điện, Chiềng Ơn, Quỳnh Nhai, Sơn La</li>
+          <li>Giá thành: Khoảng 250.000 VNĐ/người</li>
+        </ul>
+      </div>
+
+      <div class="dept">
+        <h3>Đền Linh Sơn Thuỷ Từ</h3>
+        <ul>
+          <li>Đánh giá chất lượng:4.2/5 (Đánh giá bởi Google)</li>
+          <li>Địa chỉ:Mường Giàng, Quỳnh Nhai, Sơn La</li>
+          <li>Giá thành: Miễn phí</li>
+        </ul>
+      </div>
+
+      <div class="dept">
+        <h3>Suối khoáng nóng Bản Bon</h3>
+        <ul>
+          <li>Đánh giá chất lượng:4.5/5 (Đánh giá bởi Google)</li>
+          <li>Địa chỉ:Bản Bon, Quỳnh Nhai, Sơn La</li>
+          <li>Giá thành: Khoảng 50.000 VNĐ/người/ngày</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
